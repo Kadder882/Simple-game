@@ -1,45 +1,10 @@
-
 !DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🌟 Star Clicker 🌟</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      text-align: center;
-    }
-    .container {
-      margin-top: 100px;
-    }
-    button {
-      padding: 15px 25px;
-      font-size: 20px;
-      margin: 10px;
-      cursor: pointer;
-      border: none;
-      border-radius: 10px;
-      background: gold;
-      color: #000;
-    }
-    input {
-      padding: 8px;
-      width: 280px;
-      font-size: 14px;
-      text-align: center;
-      margin-bottom: 8px;
-    }
-    .small {
-      font-size: 12px;
-      color: #ccc;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="container">
@@ -48,49 +13,17 @@
     <button id="clicker">✨ Click to Collect Stars</button>
 
     <h2>💝 Support the Game</h2>
-
-    <!-- PayPal Donation -->
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-      <input type="hidden" name="business" value="aekder6@yahoo.fr" />
-      <input type="hidden" name="currency_code" value="USD" />
-      <input type="hidden" name="amount" value="1.00" />
-      <button type="submit">💸 Donate $1 via PayPal</button>
-    </form>
-
-    <!-- Binance Donation Info -->
-    <div style="margin-top: 20px;">
-      <p>🔗 Donate via <strong>Binance (USDT)</strong></p>
-      <input type="text" readonly value="aekder6@yahoo.fr" onclick="this.select();" />
-      <div class="small">Use this email for Binance P2P or internal transfer</div>
+    <button id="donatePayPal">💸 Donate $1 via PayPal</button>
+    <button id="showCrypto">🔗 Donate with Crypto</button>
+    
+    <div id="cryptoInfo" class="hidden">
+      <p><strong>Binance (USDT):</strong><br>Send to email: <b>aekder6@yahoo.fr</b></p>
+      <p><strong>RedotPay (USDT):</strong><br>Open this link: <br><b>https://redotpay.com/donate/aekder6</b></p>
     </div>
 
-    <!-- RedotPay Donation Info -->
-    <div style="margin-top: 20px;">
-      <p>🌐 Donate via <strong>RedotPay (USDT)</strong></p>
-      <input type="text" readonly value="https://redotpay.com/donate?aekder6" onclick="this.select();" />
-      <div class="small">Copy and open this link in your browser</div>
-    </div>
-
-    <!-- Thank You Message -->
-    <div id="thankyou" style="display:none; margin-top: 30px;">
-      <h3>🎉 Thank you for your support!</h3>
-    </div>
+    <audio id="click-sound" src="click.mp3" preload="auto"></audio>
   </div>
-
-  <script>
-    let score = localStorage.getItem('score') || 0;
-    document.getElementById('score').textContent = score;
-
-    document.getElementById('clicker').onclick = () => {
-      score++;
-      document.getElementById('score').textContent = score;
-      localStorage.setItem('score', score);
-    };
-
-    // Optional: show thank you message (e.g., after redirect)
-    if (window.location.search.includes("thanks=true")) {
-      document.getElementById("thankyou").style.display = "block";
-    }
-  </script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
